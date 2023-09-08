@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Limit_index_fields_to_5</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF( Big_Object_Configuration__r.Total_Indexed_Fields__c &gt;5, true, false)</errorConditionFormula>
+    <errorMessage>Index Fields Cannot be more then 5</errorMessage>
+</ValidationRule>

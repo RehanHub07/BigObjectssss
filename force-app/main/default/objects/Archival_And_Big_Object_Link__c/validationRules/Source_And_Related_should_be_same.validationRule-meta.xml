@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Source_And_Related_should_be_same</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF( Archival_Configuration__r.Related_Object_API_Name__c == Big_Object_Configuration__r.Source_Object_API_Name__c , false, true)</errorConditionFormula>
+    <errorMessage>Source and Related object name should be same</errorMessage>
+</ValidationRule>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <logo>X4654652909_bluearchiveiconpngtransp</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>true</shouldOverrideOrgTheme>
+    </brand>
+    <description>Archive Data in Big Objects</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <label>Data Archival</label>
+    <navType>Standard</navType>
+    <tabs>Big_Object_Configuration__c</tabs>
+    <tabs>Archival_Configuration__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Archival_App_UtilityBar</utilityBar>
+</CustomApplication>

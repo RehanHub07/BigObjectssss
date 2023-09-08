@@ -1,12 +1,97 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
-		<members>*</members>
-		<name>ApexClass</name>
+		<members>Archival_And_Big_Object_Link__c.Default</members>
+		<members>Big_Object_Configuration__c.Default</members>
+		<members>Big_Object_Field_Configuration__c.Default</members>
+		<name>CompactLayout</name>
 	</types>
 	<types>
-		<members>custom_related_list</members>
-		<name>LightningComponentBundle</name>
+		<members>Data_Archival</members>
+		<name>CustomApplication</name>
+	</types>
+	<types>
+		<members>Archival_And_Big_Object_Link__c.Archival_Configuration__c</members>
+		<members>Archival_And_Big_Object_Link__c.Archival_Parent_Object_Name__c</members>
+		<members>Archival_And_Big_Object_Link__c.Big_Object_Configuration__c</members>
+		<members>Archival_And_Big_Object_Link__c.Big_Object_Name__c</members>
+		<members>Archival_Configuration__c.Parent_Object_API_Name__c</members>
+		<members>Archival_Configuration__c.Parent_Object_Name__c</members>
+		<members>Archival_Configuration__c.Related_Index_Field_API_Name__c</members>
+		<members>Archival_Configuration__c.Related_Object_API_Name__c</members>
+		<members>Archival_Configuration__c.Related_Object_Name__c</members>
+        <members>Archival_Configuration__c.Related_List_Name__c</members>
+		<members>Big_Object_Configuration__c.List_View_Name__c</members>
+        <members>Big_Object_Configuration__c.Big_Object_API_Name__c</members>
+		<members>Big_Object_Configuration__c.Big_Object_Name__c</members>
+		<members>Big_Object_Configuration__c.Source_Object_API_Name__c</members>
+		<members>Big_Object_Configuration__c.Source_Object_Name__c</members>
+		<members>Big_Object_Configuration__c.Total_Indexed_Fields__c</members>
+		<members>Big_Object_Field_Configuration__c.Big_Object_Configuration__c</members>
+		<members>Big_Object_Field_Configuration__c.Big_Object_Field_API_Name__c</members>
+		<members>Big_Object_Field_Configuration__c.Big_Object_Field_Name__c</members>
+		<members>Big_Object_Field_Configuration__c.Data_Type__c</members>
+		<members>Big_Object_Field_Configuration__c.Source_Object_Field_API_Name__c</members>
+		<members>Big_Object_Field_Configuration__c.Source_Object_Field_Name__c</members>
+		<members>Big_Object_Field_Configuration__c.Indexed__c</members>
+		<members>Big_Object_Field_Configuration__c.Related_List_View__c</members>
+		<members>Big_Object_Field_Configuration__c.Source_Object_API_Name__c</members>
+		<members>Big_Object_Field_Configuration__c.Is_Ascending_Sort__c</members>
+		<members>Big_Object_Field_Configuration__c.Text_Field_Length__c</members>
+		<members>Big_Object_Field_Configuration__c.Number_Field_Length__c</members>
+		<members>Big_Object_Field_Configuration__c.Source_Data_Type__c</members>
+		
+		<name>CustomField</name>
+	</types>
+	<types>
+		<members>Archival_And_Big_Object_Link__c</members>
+		<members>Archival_Configuration__c</members>
+		<members>Big_Object_Configuration__c</members>
+		<members>Big_Object_Field_Configuration__c</members>
+		<name>CustomObject</name>
+	</types>
+	<types>
+		<members>Big_Object_Field_Configuration__c.Duplicate_Field_API_in_big_object</members>
+		<name>DuplicateRule</name>
+	</types>
+	<types>
+		<members>Archival_And_Big_Object_Link_Record_Page</members>
+		<members>Big_Object_Configuration_Record_Page</members>
+		<members>Big_Object_Field_Configuration_Record_Page</members>
+		<name>FlexiPage</name>
+	</types>
+	<types>
+		<members>Archival_And_Big_Object_Link__c-Archival And Big Object Link Layout</members>
+		<members>Archival_Configuration__c-Big Object Configuration Layout</members>
+		<members>Big_Object_Configuration__c-Big Object Configuration Layout</members>
+		<members>Big_Object_Field_Configuration__c-Big Object Field Configuration Layout</members>
+		<name>Layout</name>
+	</types>
+	<types>
+		<members>Archival_Configuration__c.All_Objects</members>
+		<members>Big_Object_Configuration__c.All_Objects</members>
+		<name>ListView</name>
+	</types>
+	<types>
+		<members>Big_Object_Field_Configuration__c.Field_API_Name_Match</members>
+		<name>MatchingRule</name>
+	</types>
+	<types>
+		<members>Data_Archival_Configuration_Admin</members>
+		<name>PermissionSet</name>
+	</types>
+	<types>
+		<members>Archival_And_Big_Object_Link__c.Source_And_Related_should_be_same</members>
+		<members>Big_Object_Field_Configuration__c.Limit_index_fields_to_5</members>
+		<members>Big_Object_Field_Configuration__c.Match_Source_Object_API_Name</members>
+		<name>ValidationRule</name>
+	</types>
+	<types>
+		<members>SDescribeUtility</members>
+		<members>Constants</members>
+		<members>ConfigurationEngine</members>
+		
+		<name>ApexClass</name>
 	</types>
 	<version>55.0</version>
 </Package>
