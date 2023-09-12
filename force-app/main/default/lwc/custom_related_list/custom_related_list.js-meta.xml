@@ -7,7 +7,7 @@
     </targets>
     <targetConfigs>
         <targetConfig targets="lightning__RecordPage">
-            <property name="Name"  type = "String" label="Related List Type" description="Name" datasource="Tile,Basic List,Enhanced List,Default" default="Tile" />
+            <property name="relatedListType"  type = "String" label="Related List Type" description="Name" datasource="Tile,Basic List,Enhanced List,Default" default="Tile" />
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>

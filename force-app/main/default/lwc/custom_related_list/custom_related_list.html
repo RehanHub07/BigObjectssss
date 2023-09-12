@@ -1,43 +1,33 @@
 <template>
-	<template if:true={isOptionTile}>
-		<article class="slds-card slds-card_boundary slds-tile slds-hint-parent">
-			<div
-				class=" slds-grid slds-grid_align-spread slds-has-flexi-truncate slds-page-header slds-page-header_joined slds-page-header_bleed slds-shrink-none test-headerRegion slds-is-relative">
-
-				<header class="slds-media slds-media_center slds-has-flexi-truncate">
-
-					<div class="slds-media__figure">
-
-						<lightning-icon icon-name="standard:contact" size="small" alternative-text="Contact Icon">
-						</lightning-icon>
-
-					</div>
-
-					<div class="slds-media__body">
-
-						<h2 class="slds-card__header-title slds-tile__title slds-truncate">
-
-							<a href="#" class="slds-card__header-link slds-truncate slds-shrink-none"
-								title="Contacts (3)">
-
-								<span>Contacts (3)</span>
-
-							</a>
-
-						</h2>
-
-					</div>
-
-					<div class="slds-no-flex">
-
-						<button class="slds-button slds-button_neutral">New</button>
-
-					</div>
-
-				</header>
-
+    <article class="slds-card slds-card_boundary">
+        <div class="slds-page-header slds-page-header_joined slds-page-header_bleed slds-shrink-none test-headerRegion slds-is-relative">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__figure">
+                    <lightning-icon icon-name="standard:contact" size="medium" alternative-text="Contact Icon"></lightning-icon>
+                </div>
+                <div class="slds-media__body slds-grid listDisplays">
+                    <h2 class="slds-card__header-title">
+                        <a href="#" class="slds-card__header-link slds-truncate"
+                            title={headerTitle}>
+                            <span>Contacts (3)</span>
+                        </a>
+                    </h2>
+                </div>
+                <div class="slds-no-flex">
+				<lightning-button-icon icon-name="utility:refresh"  alternative-text="Refresh" title="Refresh" class="slds-button_icon slds-button_icon-border-fille forceRefreshButton rotate slds-button"></lightning-button-icon> </div>
+            </header>
+		<div if:true={isEnhancedList} class="slds-p-right_xx-large">	
+			<div>
+		<p class="slds-p-top_xx-small">
+            1 item • Updated a few seconds ago
+        </p>
 			</div>
-			<div class="slds-border_top"></div>
+		</div>
+        </div>		
+            <!-- Content specific to each template type -->
+            <template if:true={isTile}>
+                <!-- Tile template content -->		
+			<!--TODO: change to data table-->
 			<div class="slds-card__body slds-card__body_inner">
 
 				<ul class="slds-grid slds-wrap slds-grid_pull-padded">
@@ -226,227 +216,40 @@
 
 			</div>
 
-			<footer class="slds-card__footer">
+            </template>
+            <template if:true={isBasicList}>
+				<div class="slds-border_top"></div>
+                <!-- Basic list template content -->
+				<div class="slds-table_fixed-layout">
+							<lightning-datatable
+                				key-field="id"
+                				data={dataList}
+                				columns={columns}
+                				onrowaction={handleRowAction}
+				 				hide-checkbox-column >
+           					   </lightning-datatable>
+				</div>
+				
+            </template>
+            <template if:true={isEnhancedList}>
+                <!-- Enhanced list template content -->
+		<div class="slds-border_top"></div>
+                
+				<div class="slds-table_fixed-layout">
+							<lightning-datatable
+                key-field="id"
+                data={dataList}
+                columns={columns}
+                onrowaction={handleRowAction}>
+        </lightning-datatable>
+				</div>
+            </template>
+    
+        <footer class="slds-card__footer">
+            <a class="slds-card__footer-action" href="#">View All
+                <span class="slds-assistive-text">Contacts</span>
+            </a>
+        </footer>
+    </article>
 
-				<a class="slds-card__footer-action" href="#">View All
-
-					<span class="slds-assistive-text">Contacts</span>
-
-				</a>
-
-			</footer>
-		</article>
-	</template>
-	<template if:true={isOptionBasicList}>
-		<!-- Render the basic list template -->
-		<article class="slds-card slds-card_boundary">
-			<div
-				class="slds-page-header slds-page-header_joined slds-page-header_bleed slds-shrink-none test-headerRegion slds-is-relative">
-				<header class="slds-media slds-media_center slds-has-flexi-truncate">
-					<div class="slds-media__figure">
-
-						<lightning-icon icon-name="standard:contact" size="medium" alternative-text="Contact Icon">
-						</lightning-icon>
-
-					</div>
-					<div class="slds-media__body slds-grid listDisplays">
-						<h2 class="slds-card__header-title">
-							<a href="#" class="slds-card__header-link slds-truncate" title="Contacts (1)">
-								<span>Contacts (5)</span>
-							</a>
-						</h2>
-					</div>
-					<div class="slds-no-flex slds-p-right_x-large">
-						<button class="slds-button slds-button_neutral">New</button>
-					</div>
-				</header>
-			</div>
-			<div
-				class="slds-card__body slds-table_fixed-layout slds-col slds-no-flex slds-grid slds-align-bottom slds-shrink">
-				<table class="slds-table slds-table_cell-buffer slds-no-row-hover slds-table_bordered" role="grid"
-					aria-label="Example table in a Card">
-					<thead>
-						<tr class="slds-line-height_reset">
-							<th class="slds-th__action " scope="col">
-								<div class="slds-truncate" title="Contact Name">Contact Name</div>
-							</th>
-							<th class="" scope="col">
-								<div class="slds-truncate" title="Title">Title</div>
-							</th>
-							<th class="" scope="col">
-								<div class="slds-truncate" title="Email">Email</div>
-							</th>
-							<th class="" scope="col">
-								<div class="slds-truncate" title="Phone">Phone</div>
-							</th>
-							<th class="" scope="col">
-								<div class="slds-truncate" title="Phone"></div>
-							</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr class="slds-hint-parent ">
-							<th scope="row">
-								<div class="slds-truncate" title="Amy Choi">
-									<a href="#" tabindex="-1">Amy Choi</a>
-								</div>
-							</th>
-							<td role="gridcell">
-								<div class="slds-truncate" title="Company One">Company One</div>
-							</td>
-							<td role="gridcell">
-								<div class="slds-truncate" title="Email">adam@company.com</div>
-							</td>
-							<td role="gridcell">
-								<div class="slds-truncate" title="38383838">adam@company.com</div>
-							</td>
-							<td role="gridcell">
-								<div class="slds-truncate slds-p-left_xx-large">
-
-									<lightning-button-icon
-										class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small"
-										aria-haspopup="true" icon-name="utility:down" variant="bare"
-										alternative-text="Show More" slot="actions"></lightning-button-icon>
-
-
-
-								</div>
-							</td>
-						</tr>
-						<!-- Additional Records -->
-						<tr class="slds-hint-parent">
-							<th scope="row">
-								<div class="slds-truncate" title="John Doe">
-									<a href="#" tabindex="-1">John Doe</a>
-								</div>
-							</th>
-							<td role="gridcell">
-								<div class="slds-truncate" title="Company Two">Company Two</div>
-							</td>
-							<td role="gridcell">
-								<div class="slds-truncate" title="john@company.com">john@company.com</div>
-							</td>
-							<td role="gridcell">
-								<div class="slds-truncate" title="555-555-5555">555-555-5555</div>
-							</td>
-							<td role="gridcell ">
-								<div class="slds-truncate slds-p-left_xx-large">
-
-									<lightning-button-icon
-										class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small"
-										aria-haspopup="true" icon-name="utility:down" variant="bare"
-										alternative-text="Show More" slot="actions"></lightning-button-icon>
-
-
-
-								</div>
-							</td>
-						</tr>
-						<tr class="slds-hint-parent">
-							<th scope="row">
-								<div class="slds-truncate" title="Jane Smith">
-									<a href="#" tabindex="-1">Jane Smith</a>
-								</div>
-							</th>
-							<td role="gridcell">
-								<div class="slds-truncate" title="Company Three">Company Three</div>
-							</td>
-							<td role="gridcell">
-								<div class="slds-truncate" title="jane@company.com">jane@company.com</div>
-							</td>
-							<td role="gridcell">
-								<div class="slds-truncate" title="123-456-7890">123-456-7890</div>
-							</td>
-							<td role="gridcell">
-								<div class="slds-truncate slds-p-left_xx-large">
-
-									<lightning-button-icon
-										class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small"
-										aria-haspopup="true" icon-name="utility:down" variant="bare"
-										alternative-text="Show More" slot="actions"></lightning-button-icon>
-
-
-
-								</div>
-							</td>
-						</tr>
-						<tr class="slds-hint-parent">
-							<th scope="row">
-								<div class="slds-truncate" title="Michael Johnson">
-									<a href="#" tabindex="-1">Michael Johnson</a>
-								</div>
-							</th>
-							<td role="gridcell">
-								<div class="slds-truncate" title="Company Four">Company Four</div>
-							</td>
-							<td role="gridcell">
-								<div class="slds-truncate" title="michael@company.com">michael@company.com</div>
-							</td>
-							<td role="gridcell">
-								<div class="slds-truncate" title="987-654-3210">987-654-3210</div>
-							</td>
-							<td role="gridcell">
-								<div class="slds-truncate slds-p-left_xx-large">
-
-									<lightning-button-icon
-										class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small"
-										aria-haspopup="true" icon-name="utility:down" variant="bare"
-										alternative-text="Show More" slot="actions"></lightning-button-icon>
-
-
-
-								</div>
-							</td>
-						</tr>
-						<tr class="slds-hint-parent">
-							<th scope="row">
-								<div class="slds-truncate" title="Sarah Brown">
-									<a href="#" tabindex="-1">Sarah Brown</a>
-								</div>
-							</th>
-							<td role="gridcell">
-								<div class="slds-truncate" title="Company Five">Company Five</div>
-							</td>
-							<td role="gridcell">
-								<div class="slds-truncate" title="sarah@company.com">sarah@company.com</div>
-							</td>
-							<td role="gridcell">
-								<div class="slds-truncate" title="555-123-4567">555-123-4567</div>
-							</td>
-							<td role="gridcell">
-								<div class="slds-truncate slds-p-left_xx-large ">
-
-									<lightning-button-icon
-										class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small"
-										aria-haspopup="true" icon-name="utility:down" variant="bare"
-										alternative-text="Show More" slot="actions"></lightning-button-icon>
-
-
-
-								</div>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<footer class="slds-card__footer">
-				<a class="slds-card__footer-action" href="#">View All
-					<span class="slds-assistive-text">Contacts</span>
-				</a>
-			</footer>
-		</article>
-
-	</template>
-	<template if:true={isOptionEnhancedList}>
-		<!-- Render the enhanced list template -->
-		<div class="enhanced-list-template">
-			Enhanced List Template
-		</div>
-	</template>
-	<template if:true={isOptionDefault}>
-		<!-- Render the default template -->
-		<div class="default-template">
-			Default Template
-		</div>
-	</template>
 </template>
