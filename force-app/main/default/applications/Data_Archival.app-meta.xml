@@ -14,7 +14,6 @@
     <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
     <label>Data Archival</label>
     <navType>Standard</navType>
-    <tabs>standard-AnalyticsDataManager</tabs>
     <tabs>Configuration_Home</tabs>
     <tabs>Big_Object_Configuration__c</tabs>
     <tabs>Archival_Configuration__c</tabs>
