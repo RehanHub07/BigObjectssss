@@ -1,0 +1,40 @@
+<template>
+
+
+
+    <div class="main-container">
+        <lightning-layout class="full-height">
+
+            <lightning-layout-item size="2" padding="horizontal-small">
+                <div class="sub-navigation">
+                    <lightning-vertical-navigation shaded selected-item={visibilityController.tabSelected}
+                        onselect={handleTabSelect}>
+
+                        <lightning-vertical-navigation-section label="Configurations">
+                            <lightning-vertical-navigation-item-icon label="Archive " icon-name="utility:archive"
+                                name="archive">
+                            </lightning-vertical-navigation-item-icon>
+                            <lightning-vertical-navigation-item-icon label="Big Object" icon-name="utility:database"
+                                name="bigObject">
+                            </lightning-vertical-navigation-item-icon>
+                        </lightning-vertical-navigation-section>
+
+                    </lightning-vertical-navigation>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="10">
+                <div class="sub-container">
+                    <div class=" slds-grid slds-grid_vertical">
+                        <div if:true={visibilityController.isArchiveSelected}>
+                            archive
+                        </div>
+                        <div if:true={visibilityController.isBigObjectSelected}>
+                            <c-configuration-big-object-home></c-configuration-big-object-home>
+                        </div>
+                    </div>
+                </div>
+            </lightning-layout-item>
+
+        </lightning-layout>
+    </div>
+</template>

@@ -1,0 +1,58 @@
+<template>
+    <div class="slds-page-header">
+        <div class="slds-page-header__row">
+            <div class="slds-page-header__col-title">
+                <div class=" slds-media vertical-align-center">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-icon-utility-database">
+                            <lightning-icon icon-name="utility:database" alternative-text="object" title="object">
+
+                            </lightning-icon>
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-page-header__name">
+                            <div class="slds-page-header__name-title">
+                                <h1>
+                                    <span>Big Object</span>
+                                </h1>
+                                <span class="slds-page-header__title  slds-p-top_xx-small" title="Objects">
+                                    Objects
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-page-header__col-actions">
+                <div class="slds-page-header__controls">
+                    <div class="slds-page-header__control">
+                        <ul class="slds-button-group-list">
+                            <li>
+                                <lightning-button label="New" title="New"   class="slds-m-left_x-small"></lightning-button>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-page-header__row">
+            <div class="slds-page-header__col-meta">
+                <p class="slds-page-header__meta-text">10 items </p>
+            </div>
+            <div class="slds-page-header__col-controls">
+                <div class="slds-page-header__controls">
+                    <div class="slds-page-header__control">
+                        <lightning-input name="searchObject" label="Search Object" type="search">
+
+                        </lightning-input>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <lightning-datatable key-field="id" data={data} columns={columns} show-row-number-column hide-checkbox-column>
+    </lightning-datatable>
+</template>
