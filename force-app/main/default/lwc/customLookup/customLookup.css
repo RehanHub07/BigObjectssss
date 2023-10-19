@@ -1,0 +1,35 @@
+lightning-radio-group .slds-radio_faux {
+    margin-right: 10px;
+}
+.slds-grid-custom {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.cPill{
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    padding: 3px;
+    
+}
+
+.lookupPill{
+    border: 1px solid #e5e5e5;
+    padding: 4px;
+    border-radius: 4px;
+}
+.lookupPill:hover > div {
+    background-color: #eeeeee;
+    transition: .1s;
+}
+.closeIcon{
+    cursor: pointer;
+}
+.icon-style {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+}

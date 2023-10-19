@@ -10,9 +10,24 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>String</fullName>
+                <fullName>Text</fullName>
                 <default>false</default>
-                <label>String</label>
+                <label>Text</label>
+            </value>
+            <value>
+                <fullName>LongTextArea</fullName>
+                <default>false</default>
+                <label>LongTextArea</label>
+            </value>
+            <value>
+                <fullName>Number</fullName>
+                <default>false</default>
+                <label>Number</label>
+            </value>
+            <value>
+                <fullName>DateTime</fullName>
+                <default>false</default>
+                <label>DateTime</label>
             </value>
         </valueSetDefinition>
     </valueSet>

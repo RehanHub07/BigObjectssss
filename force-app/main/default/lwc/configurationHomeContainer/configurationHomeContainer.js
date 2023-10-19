@@ -4,7 +4,7 @@ export default class ConfigurationHomeContainer extends LightningElement {
  
 
     @track visibilityController={
-        tabSelected:'bigObject',
+        tabSelected:'archive',
         get isBigObjectSelected(){
             return this.tabSelected=='bigObject';
         },

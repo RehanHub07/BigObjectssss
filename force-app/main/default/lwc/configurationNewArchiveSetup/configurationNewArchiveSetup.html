@@ -1,19 +1,86 @@
 <template>
-    <lightning-modal-header >
-        <h2>Configure New Archival</h2>
-        <lightning-progress-indicator current-step="step1">
-            <lightning-progress-step label="Select Objects" value="step1">
-            </lightning-progress-step>
-            <lightning-progress-step label="Select Fields" value="step2">
-            </lightning-progress-step>
-            <lightning-progress-step label="Confirm" value="step3">
-            </lightning-progress-step>
-        </lightning-progress-indicator>
+    <lightning-modal-header>
+        <h2 class="slds-text-heading_medium">Configure New Archival</h2>
+        <div class="slds-m-top_small">
+            <lightning-progress-indicator current-step={currentStep} type="base" variant="base">
+                <lightning-progress-step label="Select Objects" value="1">
+                </lightning-progress-step>
+                <lightning-progress-step label="Select Fields" value="2">
+                </lightning-progress-step>
+                <lightning-progress-step label="Confirm" value="3">
+                </lightning-progress-step>
+            </lightning-progress-indicator>
+        </div>
     </lightning-modal-header>
     <lightning-modal-body>
-         Content: {content} 
+        <div class="container">
+            <lightning-spinner lwc:if={isLoading} alternative-text="Loading" size="large"></lightning-spinner>
+         
+            <div lwc:if={isStep1}>
+                <div>
+                    <c-custom-lookup label="Parent Object" search-options={options.parentObjectOptionsList}
+                        is-required="true" is-loading={options.isParentObjectLoading}
+                        is-disabled={options.isParentObjectLoading} onsearch={onParentObjectSearch}
+                        onselect={onParentObjectSelect}>
+                    </c-custom-lookup>
+                </div>
+                <div>
+                    <c-custom-lookup label="Related Object" search-options={options.childObjectList} is-required="true"
+                        is-disabled={options.isChildObjectLoading} onsearch={onChildObjectSearch}
+                        onselect={onChildObjectSelect}>
+                    </c-custom-lookup>
+                </div>
+            </div>
+            <div lwc:elseif={isStep2}>
+                <lightning-datatable key-field="apiName" data={options.allChildObjectFields}
+                    onrowselection={getSelectedFields} selected-rows={configs.childObjectFieldsList}
+                    columns={options.fieldColumns}>
+                </lightning-datatable>
+            </div>
+            <div lwc:elseif={isStep3}>
+
+                <article class="slds-tile slds-media slds-box">
+
+                    <div class="slds-media__body">
+                        <h3 class="slds-tile__title slds-truncate" title="Salesforce UX">
+                            Configuration Details 
+                        </h3>
+                        <div class="slds-tile__detail">
+                            <dl class="slds-list_horizontal slds-wrap">
+                                <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Parent Object">
+                                    Parent Object:</dt>
+                                <dd class="slds-item_detail slds-truncate">
+                                    {configs.parentObjectApiName}</dd>
+                                <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Related Object">
+                                    Related Object:</dt>
+                                <dd class="slds-item_detail slds-truncate" title="Description for second label">
+                                    {configs.childObjectApiName}</dd>
+                                <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Total Fields">
+                                    Total Fields:</dt>
+                                <dd class="slds-item_detail slds-truncate">
+                                    {configs.fieldsSelectedCount}</dd>
+                            </dl>
+                        </div>
+                    </div>
+
+                </article>
+                 
+            </div>
+        </div>
     </lightning-modal-body>
     <lightning-modal-footer>
         <lightning-button label="Cancel" onclick={onCancel}></lightning-button>
+
+        <lightning-button lwc:if={isStep1} label="Next" onclick={goToStep2}
+            disabled={isStep1NextDisabled}></lightning-button>
+
+
+        <lightning-button lwc:if={isStep2} label="Back" onclick={goToStep1}></lightning-button>
+        <lightning-button lwc:if={isStep2} label="Next" onclick={goToStep3}></lightning-button>
+
+
+        <lightning-button lwc:if={isStep3} label="Back" onclick={goToStep2}></lightning-button>
+        <lightning-button lwc:if={isStep3} label="Save" onclick={createConfigRecord}></lightning-button>
+
     </lightning-modal-footer>
 </template>

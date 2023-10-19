@@ -27,6 +27,10 @@
                 <behavior>Edit</behavior>
                 <field>Source__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Is_Standard_Field__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
